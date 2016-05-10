@@ -1,14 +1,31 @@
-for (var i = 0; i < 100; i++) {
-	if (i%3 == 0 && i%5 == 0) {
-		document.write('fizzbuzz</br>');
-	} 
-	else if (i % 5 == 0) {
-		document.write('buzz</br>');
+var guestInput;
+console.log(guestInput);
+
+var getAndCheckUserGuest = function () {
+	guestInput = prompt();
+	if (!parseInt(guestInput)) {
+		alert("Please enter a number.");
+		getAndCheckUserGuest();
 	}
-	else if (i % 3 == 0) {
-		document.write('fizz</br>');
+	else if (Math.round(guestInput) != guestInput) {
+		alert("Please enter a whole number.");
+		getAndCheckUserGuest();
 	}
 	else {
-		document.write(i + '</br>');
+		for (var i = 1; i <= guestInput; i++) {
+			if (i%3 == 0 && i%5 == 0) {
+				document.write('fizzbuzz</br>');
+			} 
+			else if (i % 5 == 0) {
+				document.write('buzz</br>');
+			}
+			else if (i % 3 == 0) {
+				document.write('fizz</br>');
+			}
+			else {
+				document.write(i + '</br>');
+			}
+		}
 	}
 };
+getAndCheckUserGuest();
